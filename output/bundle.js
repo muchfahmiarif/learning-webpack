@@ -1,11 +1,3 @@
-/*
- * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
@@ -16,7 +8,34 @@
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"AlertService\": () => (/* binding */ AlertService)\n/* harmony export */ });\n/* harmony import */ var _utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/cekInputValid.js */ \"./src/app/utils/cekInputValid.js\");\n\n\nclass AlertService {\n  constructor() {\n    this.error = document.querySelector(\"#error\");\n  }\n\n  tampilkanErrorPenjumlahan = (input, angka) => {\n    const hasil = input.reduce((pesan, nilai, index) => {\n      if ((0,_utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_0__.cekInputValid)(angka[index])) {\n        return pesan + \"\";\n      } else {\n        return pesan + `${nilai} itu bukan angka! `;\n      }\n    }, \"Silahkan masukkan angka yang benar: \");\n\n    this.error.classList.remove(\"d-none\");\n    this.error.innerText = hasil;\n  };\n\n  sembunyikanError = () => this.error.classList.add(\"d-none\");\n}\n\n\n//# sourceURL=webpack://learning-webpack/./src/app/alert.service.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AlertService": () => (/* binding */ AlertService)
+/* harmony export */ });
+/* harmony import */ var _utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/cekInputValid.js */ "./src/app/utils/cekInputValid.js");
+
+
+class AlertService {
+  constructor() {
+    this.error = document.querySelector("#error");
+  }
+
+  tampilkanErrorPenjumlahan = (input, angka) => {
+    const hasil = input.reduce((pesan, nilai, index) => {
+      if ((0,_utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_0__.cekInputValid)(angka[index])) {
+        return pesan + "";
+      } else {
+        return pesan + `${nilai} itu bukan angka! `;
+      }
+    }, "Silahkan masukkan angka yang benar: ");
+
+    this.error.classList.remove("d-none");
+    this.error.innerText = hasil;
+  };
+
+  sembunyikanError = () => this.error.classList.add("d-none");
+}
+
 
 /***/ }),
 
@@ -26,7 +45,40 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"run\": () => (/* binding */ run)\n/* harmony export */ });\n/* harmony import */ var _utils_parseInput_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/parseInput.js */ \"./src/app/utils/parseInput.js\");\n/* harmony import */ var _utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/cekInputValid.js */ \"./src/app/utils/cekInputValid.js\");\n\n\n\nconst run = (alertService, calculatorService, jokesService) => {\n  alertService.sembunyikanError();\n\n  calculatorService.onClick(() => {\n    alertService.sembunyikanError();\n    const input = calculatorService.getInput();\n    const angka = (0,_utils_parseInput_js__WEBPACK_IMPORTED_MODULE_0__.parseInput)(...input);\n    if ((0,_utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_1__.cekInputValid)(...angka)) {\n      const [angka1, angka2] = angka;\n      calculatorService.setResult(angka1, angka2);\n    } else {\n      calculatorService.setResult(\"\");\n      alertService.tampilkanErrorPenjumlahan(input, angka);\n    }\n  });\n\n  jokesService.onClick(() => {\n    fetch(\"https://candaan-api.vercel.app/api/text/random\")\n      .then((response) => response.json())\n      .then((data) => {\n        jokesService.setModal(data.data);\n      });\n  });\n};\n\n\n//# sourceURL=webpack://learning-webpack/./src/app/app.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "run": () => (/* binding */ run)
+/* harmony export */ });
+/* harmony import */ var _utils_parseInput_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/parseInput.js */ "./src/app/utils/parseInput.js");
+/* harmony import */ var _utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/cekInputValid.js */ "./src/app/utils/cekInputValid.js");
+
+
+
+const run = (alertService, calculatorService, jokesService) => {
+  alertService.sembunyikanError();
+
+  calculatorService.onClick(() => {
+    alertService.sembunyikanError();
+    const input = calculatorService.getInput();
+    const angka = (0,_utils_parseInput_js__WEBPACK_IMPORTED_MODULE_0__.parseInput)(...input);
+    if ((0,_utils_cekInputValid_js__WEBPACK_IMPORTED_MODULE_1__.cekInputValid)(...angka)) {
+      const [angka1, angka2] = angka;
+      calculatorService.setResult(angka1, angka2);
+    } else {
+      calculatorService.setResult("");
+      alertService.tampilkanErrorPenjumlahan(input, angka);
+    }
+  });
+
+  jokesService.onClick(() => {
+    fetch("https://candaan-api.vercel.app/api/text/random")
+      .then((response) => response.json())
+      .then((data) => {
+        jokesService.setModal(data.data);
+      });
+  });
+};
+
 
 /***/ }),
 
@@ -36,7 +88,31 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"CalculatorService\": () => (/* binding */ CalculatorService)\n/* harmony export */ });\nclass CalculatorService {\n  constructor() {\n    this.operand1 = document.querySelector(\"#operand1\");\n    this.operand2 = document.querySelector(\"#operand2\");\n    this.tombolTambah = document.querySelector(\"#tombol-tambah\");\n    this.hasil = document.querySelector(\"#hasil\");\n  }\n\n  getInput() {\n    return [this.operand1.value, this.operand2.value];\n  }\n\n  setResult(angka1, angka2) {\n    this.hasil.innerText = angka1 + angka2;\n  }\n\n  onClick(cb) {\n    this.tombolTambah.addEventListener(\"click\", cb);\n  }\n}\n\n\n//# sourceURL=webpack://learning-webpack/./src/app/calculator.service.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CalculatorService": () => (/* binding */ CalculatorService)
+/* harmony export */ });
+class CalculatorService {
+  constructor() {
+    this.operand1 = document.querySelector("#operand1");
+    this.operand2 = document.querySelector("#operand2");
+    this.tombolTambah = document.querySelector("#tombol-tambah");
+    this.hasil = document.querySelector("#hasil");
+  }
+
+  getInput() {
+    return [this.operand1.value, this.operand2.value];
+  }
+
+  setResult(angka1, angka2) {
+    this.hasil.innerText = angka1 + angka2;
+  }
+
+  onClick(cb) {
+    this.tombolTambah.addEventListener("click", cb);
+  }
+}
+
 
 /***/ }),
 
@@ -46,7 +122,25 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"JokesService\": () => (/* binding */ JokesService)\n/* harmony export */ });\nclass JokesService {\n  constructor() {\n    this.tombolJokes = document.querySelector(\"#jokes-receh\");\n    this.modalBody = document.querySelector(\".modal-body\");\n  }\n\n  setModal(str) {\n    this.modalBody.innerHTML = str;\n  }\n\n  onClick(cb) {\n    this.tombolJokes.addEventListener(\"click\", cb);\n  }\n}\n\n\n//# sourceURL=webpack://learning-webpack/./src/app/jokes.service.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "JokesService": () => (/* binding */ JokesService)
+/* harmony export */ });
+class JokesService {
+  constructor() {
+    this.tombolJokes = document.querySelector("#jokes-receh");
+    this.modalBody = document.querySelector(".modal-body");
+  }
+
+  setModal(str) {
+    this.modalBody.innerHTML = str;
+  }
+
+  onClick(cb) {
+    this.tombolJokes.addEventListener("click", cb);
+  }
+}
+
 
 /***/ }),
 
@@ -56,7 +150,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"cekInputValid\": () => (/* binding */ cekInputValid)\n/* harmony export */ });\nconst cekInputValid = (...angka) => {\n  return angka.every((num) => typeof num === \"number\" && !isNaN(num));\n};\n\n\n//# sourceURL=webpack://learning-webpack/./src/app/utils/cekInputValid.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "cekInputValid": () => (/* binding */ cekInputValid)
+/* harmony export */ });
+const cekInputValid = (...angka) => {
+  return angka.every((num) => typeof num === "number" && !isNaN(num));
+};
+
 
 /***/ }),
 
@@ -66,17 +167,14 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"parseInput\": () => (/* binding */ parseInput)\n/* harmony export */ });\nconst parseInput = (...input) => {\n  return input.map((str) => parseInt(str));\n};\n\n\n//# sourceURL=webpack://learning-webpack/./src/app/utils/parseInput.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "parseInput": () => (/* binding */ parseInput)
+/* harmony export */ });
+const parseInput = (...input) => {
+  return input.map((str) => parseInt(str));
+};
 
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app_app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/app.js */ \"./src/app/app.js\");\n/* harmony import */ var _app_alert_service_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/alert.service.js */ \"./src/app/alert.service.js\");\n/* harmony import */ var _app_calculator_service_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/calculator.service.js */ \"./src/app/calculator.service.js\");\n/* harmony import */ var _app_jokes_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/jokes.service.js */ \"./src/app/jokes.service.js\");\n\n\n\n\n\nconst alertService = new _app_alert_service_js__WEBPACK_IMPORTED_MODULE_1__.AlertService();\nconst calculatorService = new _app_calculator_service_js__WEBPACK_IMPORTED_MODULE_2__.CalculatorService();\nconst jokesService = new _app_jokes_service_js__WEBPACK_IMPORTED_MODULE_3__.JokesService();\n(0,_app_app_js__WEBPACK_IMPORTED_MODULE_0__.run)(alertService, calculatorService, jokesService);\n\n\n//# sourceURL=webpack://learning-webpack/./src/index.js?");
 
 /***/ })
 
@@ -136,11 +234,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _app_app_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app/app.js */ "./src/app/app.js");
+/* harmony import */ var _app_alert_service_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/alert.service.js */ "./src/app/alert.service.js");
+/* harmony import */ var _app_calculator_service_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/calculator.service.js */ "./src/app/calculator.service.js");
+/* harmony import */ var _app_jokes_service_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app/jokes.service.js */ "./src/app/jokes.service.js");
+
+
+
+
+
+const alertService = new _app_alert_service_js__WEBPACK_IMPORTED_MODULE_1__.AlertService();
+const calculatorService = new _app_calculator_service_js__WEBPACK_IMPORTED_MODULE_2__.CalculatorService();
+const jokesService = new _app_jokes_service_js__WEBPACK_IMPORTED_MODULE_3__.JokesService();
+(0,_app_app_js__WEBPACK_IMPORTED_MODULE_0__.run)(alertService, calculatorService, jokesService);
+
+})();
+
 /******/ })()
 ;

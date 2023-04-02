@@ -8,4 +8,5 @@ module.exports = {
     filename: "bundle.js", // default: 'main.js'
   },
   watch: true,
+  devtool: false,
 };
