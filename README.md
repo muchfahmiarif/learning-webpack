@@ -14,3 +14,6 @@ Dengan menggunakan default configuration webpack, langkah-langkah yang harus dil
   },
 ``` 
 Kalian dapat melihat configuration webpack [disini](https://webpack.js.org/api/#cli) 
+
+- Membuat file webpack.config.js
+Script configuration webpack dapat dilihat [disini](https://webpack.js.org/configuration/)
