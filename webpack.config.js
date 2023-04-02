@@ -7,4 +7,5 @@ module.exports = {
     path: path.resolve(__dirname, "output"), // default: 'dist'
     filename: "bundle.js", // default: 'main.js'
   },
+  watch: true,
 };

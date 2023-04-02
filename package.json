@@ -4,8 +4,7 @@
   "description": "<h1 align=\"center\">ES6 Modules</h1>",
   "private": true,
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch"
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
