@@ -1,33 +1,9 @@
-<h1 align="center">ES6 Modules</h1>
+<h1 align="center">Webpack</h1>
 
-Pada branch es6 module ini mempelajari bagaimana javscript di jalankan menggunakan ecmascript module. Nama ES6 yaitu ECMAScript Harmony tetapi banayak orang bilangnya ES6 Module. Berikut kelebihan dan kekurangan pada ES6 Module
-- Menggunakan keyword **exports** dan **import**
-- Secara default **asynchronous**
-- Tidak butuh module bundler jika ingin dijalankan di browser
-- Harus menambahkan **type="module"** pada tag `<script>` di html
+##### Cara Menggunakan Webpack
+Dengan menggunakan default configuration webpack, langkah-langkah yang harus dilakukan adalah:
+1. Inisisasi package.json dengan perintah `npm init -y`
+2. Install webpack dengan perintah `npm install webpack webpack-cli --save-dev`
+3. Gunakan tag `<script src="./dist/main,js"></scrtipt>` pada file index.html
 
-##### Berikut Contoh code pada ES6 Module
-```javascript
-// users.js
-var users = ["Fahmi", "Rizal", "Rahman"];
-
-export function getUsers() {
-  return users;
-}
-```
-
-```javascript
-// app.js
-import { getUsers } from "./users.js";
-
-getUsers(); // ["Fahmi", "Rizal", "Rahman"]
-```
-
-```html
-<!-- index.html -->
-    .......
-    <script type="module" src="app.js"></script>
-  </body>
-</html>
-```
-
+##### Custom Configuration Webpack
