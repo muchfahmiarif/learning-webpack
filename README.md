@@ -7,3 +7,10 @@ Dengan menggunakan default configuration webpack, langkah-langkah yang harus dil
 3. Gunakan tag `<script src="./dist/main,js"></scrtipt>` pada file index.html
 
 ##### Custom Configuration Webpack
+- Ubah nama file `main.js` dan mengubah nama file default output dengan menambahkan pada script di package.json
+```json
+"scripts": {
+    "build": "webpack -o ./[nama fodler] --output-filename [nama file].js"
+  },
+``` 
+Kalian dapat melihat configuration webpack [disini](https://webpack.js.org/api/#cli) 
