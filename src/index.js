@@ -7,3 +7,5 @@ const alertService = new AlertService();
 const calculatorService = new CalculatorService();
 const jokesService = new JokesService();
 run(alertService, calculatorService, jokesService);
+
+alert("Selamat Datang");
